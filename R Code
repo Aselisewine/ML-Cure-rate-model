@@ -178,8 +178,7 @@ mydata = function(n,alpha,beta1,beta2,beta3,beta4,beta5,beta6,beta7,beta8,beta9,
 } 
 
 
-# A4. R code for SVM-based EM algorithm
-
+# A4. R code for estimating the baseline survival function using the Breslow technique
 
 
 library(survival)
@@ -212,7 +211,8 @@ smsurv <-function(Time,Status,X,beta,w,model){
 
 
 
-## SVM-based EM
+# A5. R code for SVM-based EM algorithm
+
 library(e1071)
 em.svm <- function(Time,Time1,Status,Status1,X,X1,Z,Z1,offsetvar,uncureprob,uncurepred,beta,model,emmax,eps,data,testdata){     
   w <- Status	
@@ -346,7 +346,6 @@ em.svm <- function(Time,Time1,Status,Status1,X,X1,Z,Z1,offsetvar,uncureprob,uncu
     s1<-update_s1
     
     i <- i+1
-    #print(i)
   }
     S1 = drop(s^(exp((beta)%*%t(X[,-1])))) # survival function of susceptible group
     S1.pred<-drop(s1^(exp((beta)%*%t(X1[,-1]))))
@@ -356,7 +355,8 @@ em.svm <- function(Time,Time1,Status,Status1,X,X1,Z,Z1,offsetvar,uncureprob,uncu
 }
 
 
-## N-Net
+# A6. R code for Neural network-based EM algorithm
+
 library(neuralnet)
 
 em.nn <-function(Time,Time1,Status,Status1,X,X1,Z,Z1,offsetvar,uncureprob,uncurepred,beta,model,emmax,eps,data,testdata) # considering proportional hazards structure
@@ -490,7 +490,7 @@ em.nn <-function(Time,Time1,Status,Status1,X,X1,Z,Z1,offsetvar,uncureprob,uncure
 }
 
 
-## XGBoost
+# A7. R code for XGBOOST-based EM algorithm
 
 library(xgboost)
 
@@ -621,7 +621,8 @@ em.xgb <-function(Time,Time1,Status,Status1,X,X1,Z,Z1,offsetvar,uncureprob,uncur
 }
 
 
-## Decision Trees
+# A8. R code for Decision Trees-based EM algorithm
+
 
 library(rpart)
 
@@ -747,7 +748,7 @@ em.dt <-function(Time,Time1,Status,Status1,X,X1,Z,Z1,offsetvar,uncureprob,uncure
 }
 
 
-## Random Forest
+# A5. R code for Random forest-based EM algorithm
 
 library(randomForest)
 
