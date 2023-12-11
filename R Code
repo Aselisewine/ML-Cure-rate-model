@@ -748,7 +748,7 @@ em.dt <-function(Time,Time1,Status,Status1,X,X1,Z,Z1,offsetvar,uncureprob,uncure
 }
 
 
-# A5. R code for Random forest-based EM algorithm
+# A9. R code for Random forest-based EM algorithm
 
 library(randomForest)
 
